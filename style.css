@@ -220,32 +220,12 @@ main {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(180deg, rgba(3, 3, 4, 0.60) 0%, rgba(28, 32, 48, 0.60) 9%, rgba(10, 17, 79, 0.60) 33%, rgba(25, 47, 88, 0.60) 66%, rgba(74, 81, 94, 0.60) 90%, rgba(4, 9, 25, 0.60) 100%), #040919;
+    background: url('images/hero/mainbg.png') no-repeat center center;
+    background-size: cover;
     overflow: hidden;
 }
 
-.bg-blur-1 {
-    position: absolute;
-    width: 569px;
-    height: 568px;
-    left: 0px;
-    top: -100px;
-    background: rgba(30, 31, 132, 0.42);
-    filter: blur(250px);
-    border-radius: 50%;
-}
 
-.bg-blur-2 {
-    position: absolute;
-    width: 725px;
-    height: 724px;
-    left: 50px;
-    top: -200px;
-    background: #1E1F84;
-    filter: blur(318px);
-    border-radius: 50%;
-    opacity: 0.5;
-}
 
 .hero-content {
     position: relative;
