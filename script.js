@@ -283,8 +283,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Page Navigation Logic
-    const navLinks = document.querySelectorAll('.top-nav a');
+    const navLinks = document.querySelectorAll('.top-nav a, .mobile-bottom-nav a');
     const pages = document.querySelectorAll('.page');
+    const bottomNavItems = document.querySelectorAll('.mobile-bottom-nav .nav-item');
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -304,7 +305,96 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Update scroll indicator for the new page
                 updateScrollIndicator(targetPageId);
+
+                // Update Bottom Nav Active State
+                bottomNavItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('data-page') === targetPageId) {
+                        item.classList.add('active');
+                    }
+                });
             }
         });
     });
+
+    // Mobile Search Logic with GPT API
+    const searchInput = document.getElementById('mobile-search-input');
+    const searchBtn = document.getElementById('mobile-search-btn');
+    
+    // Base64 Encoded API Key
+    const ENCODED_KEY = 'c2stcHJvai1tWTEtTGFHZ25OQWxTdV9XcGVsNTRUbUpoQkY5TXFjTzFUY0NCaVNXeWR0WklYdENIMGVaaGJmcko3eWhQbXNRRzV6YzBEZVRkYVQzQmxia0ZKTUExSUZCdVZQZzdFYlNhc0FmLThFWW1fRWFheGltZ2R2ZzZDdVd5V3hUNGx1VEY1M0xseE9uNHVPTnJSYkdqcEpfSDVmZElmSUE=';
+    
+    // Decode API Key
+    const OPENAI_API_KEY = atob(ENCODED_KEY);
+
+    const performSearch = async () => {
+        const query = searchInput.value.trim();
+        if (!query) return;
+
+        if (!OPENAI_API_KEY) {
+            alert('OpenAI API Key가 설정되지 않았습니다. script.js 파일에서 키를 설정해주세요.');
+            return;
+        }
+
+        // UI Loading State
+        const originalBtnContent = searchBtn.innerHTML;
+        searchBtn.innerHTML = '...';
+        searchBtn.style.pointerEvents = 'none';
+        searchInput.disabled = true;
+
+        try {
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${OPENAI_API_KEY}`
+                },
+                body: JSON.stringify({
+                    model: "gpt-4o-mini",
+                    messages: [
+                        {
+                            role: "system",
+                            content: "You are a helpful assistant that identifies Samsung Electronics product codes based on user search queries. Your goal is to find the most relevant product code (e.g., SM-S918N, RF85C900001, etc.). If the user searches for a general term (e.g., 'Galaxy S24'), provide the most representative model code. Return ONLY the product code string. Do not include any other text."
+                        },
+                        {
+                            role: "user",
+                            content: `Find the Samsung product code for: ${query}`
+                        }
+                    ],
+                    temperature: 0.3,
+                    max_tokens: 50
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.choices && data.choices.length > 0) {
+                const productCode = data.choices[0].message.content.trim();
+                console.log('Identified Product Code:', productCode);
+                
+                // Redirect to Samsung Search
+                window.location.href = `https://www.samsung.com/sec/aisearch/?searchvalue=${encodeURIComponent(productCode)}`;
+            } else {
+                alert('제품 코드를 찾을 수 없습니다. 다시 시도해주세요.');
+            }
+
+        } catch (error) {
+            console.error('Error fetching from GPT API:', error);
+            alert('검색 중 오류가 발생했습니다.');
+        } finally {
+            // Reset UI
+            searchBtn.innerHTML = originalBtnContent;
+            searchBtn.style.pointerEvents = 'auto';
+            searchInput.disabled = false;
+        }
+    };
+
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
 });

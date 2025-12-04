@@ -218,6 +218,11 @@ main {
     color: #B7BFCF;
 }
 
+/* Mobile Specific Elements (Hidden on Desktop) */
+.mobile-home-view, .mobile-bottom-nav {
+    display: none;
+}
+
 /* Hero Section */
 .hero {
     background: url('images/hero/mainbg.png') no-repeat center center;

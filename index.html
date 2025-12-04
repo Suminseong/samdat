@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>삼성, B-Side로 새롭게</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
     <header class="global-header">
@@ -65,7 +66,114 @@
     <main>
         <!-- Home / B-Side Page -->
         <div id="page-home" class="page active">
-            <section id="hero" class="section hero">
+            <!-- Mobile Home View -->
+            <div class="mobile-home-view">
+                <div class="mobile-header-top">
+                    <div class="logo">SAMSUNG NowHere</div>
+                    <div class="actions">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </span>
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                        </span>
+                        <span class="icon user-profile">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="greeting-section">
+                    <h2>카레카레님,<br>오늘은 어떤 여정을 도와드릴까요?</h2>
+                </div>
+
+                <div class="mobile-search-bar">
+                    <div class="search-icon-circle" id="mobile-search-btn" style="cursor: pointer;">✦</div>
+                    <input type="text" id="mobile-search-input" placeholder="무엇이든 묻거나, 검색하거나, 제안해주세요">
+                </div>
+
+                <div class="mobile-menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-icon-circle">
+                            <img src="images/ico/기술톡.png" alt="기술톡">
+                        </div>
+                        <span>기술톡</span>
+                    </div>
+                    <div class="menu-item" onclick="document.querySelector('[data-page=play]').click()">
+                        <div class="menu-icon-circle">
+                            <img src="images/ico/ai플레이.png" alt="AI PLAY">
+                        </div>
+                        <span>AI PLAY</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon-circle">
+                            <img src="images/ico/B-side.png" alt="B-side">
+                        </div>
+                        <span>B-side</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon-circle">
+                            <img src="images/ico/왓이프.png" alt="왓이프">
+                        </div>
+                        <span>왓이프</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon-circle">
+                            <img src="images/ico/삼성로그.png" alt="삼성로그">
+                        </div>
+                        <span>삼성로그</span>
+                    </div>
+                    <div class="menu-item" onclick="document.querySelector('[data-page=recipe]').click()">
+                        <div class="menu-icon-circle">
+                            <img src="images/ico/레시피.png" alt="Pro's Recipe">
+                        </div>
+                        <span>Pro's Recipe</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon-circle">
+                            <img src="images/ico/스타일매치.png" alt="스타일매치">
+                        </div>
+                        <span>스타일매치</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon-circle">
+                            <img src="images/ico/이벤트.png" alt="이벤트">
+                        </div>
+                        <span>이벤트</span>
+                    </div>
+                </div>
+
+                <div class="my-activity-section">
+                    <h3>내 활동</h3>
+                    <div class="activity-scroll">
+                        <div class="activity-card">
+                            <div class="card-label">최근 탐색 기록</div>
+                            <div class="card-content">
+                                <span class="icon">🕒</span>
+                                <span class="text">최근에 스마트전구를 검색하셨어요.</span>
+                            </div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="card-label">오늘의 미션</div>
+                            <div class="card-content">
+                                <span class="icon">🎒</span>
+                                <span class="text">스타일 매치 참여하기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="hero" class="section hero desktop-only">
                 
                 <div class="hero-content">
                     <div class="logo-icon">
@@ -83,11 +191,11 @@
             </section>
 
             <!-- Placeholder for WhatIF section if needed, or we skip to Pro's Recipe mapped to Makers Log -->
-            <section id="whatif" class="section whatif" style="display:none;">
+            <section id="whatif" class="section whatif desktop-only" style="display:none;">
                 <!-- Content for WhatIF -->
             </section>
 
-            <section id="makers-log" class="section pros-recipe">
+            <section id="makers-log" class="section pros-recipe desktop-only">
                 <div class="section-header">
                     <h2>Pro’s Recipe</h2>
                     <a href="#" class="more-btn">더보기</a>
@@ -133,7 +241,7 @@
                 </div>
             </section>
 
-            <section id="tech-tock" class="section style-match">
+            <section id="tech-tock" class="section style-match desktop-only">
                 <div class="section-header">
                     <h2>Style Match</h2>
                     <a href="#" class="more-btn">더보기</a>
@@ -151,7 +259,7 @@
                 </div>
             </section>
 
-            <section id="ai-play" class="section play">
+            <section id="ai-play" class="section play desktop-only">
                 <div class="section-header">
                     <h2>PLAY</h2>
                     <a href="#" class="more-btn">더보기</a>
@@ -219,11 +327,72 @@
 
         <!-- Other Pages (Placeholders) -->
         <div id="page-play" class="page">
-            <section id="play-hero" class="section play-hero">
+            <!-- Mobile Play View -->
+            <div class="mobile-play-view">
+                <div class="play-bg">
+                    <img src="images/cards/aiplay1.png" alt="Wonderland">
+                    <div class="play-overlay"></div>
+                </div>
+                <div class="play-header-top">
+                    <div class="logo">SAMSUNG</div>
+                    <div class="actions">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </span>
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                        </span>
+                        <span class="icon user-profile">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="play-content-bottom">
+                    <div class="play-info-box">
+                        <div class="app-icon">
+                            <img src="images/ico/image 7147.png" alt="App Icon">
+                        </div>
+                        <div class="text-content">
+                            <h3>원더랜드</h3>
+                            <p>갤럭시만 가능한 귀엽고 신박한 움직이는 케데런<br>더피 배경화면 적용법! 지금 바로 내 갤럭시에 적용<br>해보세요.</p>
+                        </div>
+                    </div>
+                    <button class="action-btn">바로 가기 ↗</button>
+                </div>
+                <div class="play-side-actions">
+                    <div class="action-item">
+                        <span class="icon">💰</span>
+                        <span class="label">+ 50</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="icon">📥</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="icon">❤️</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="icon">💬</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="icon">🔗</span>
+                    </div>
+                </div>
+            </div>
+
+            <section id="play-hero" class="section play-hero desktop-only">
                 <img src="images/hero/heroplay.png" alt="Play Hero">
             </section>
 
-            <section id="play-intro" class="play-header">
+            <section id="play-intro" class="play-header desktop-only">
                 <h2>Joyful Ways to Unlock Your Galaxy</h2>
                 <p>
                     친절하고, 정교하게.<br>
@@ -233,7 +402,7 @@
                 </p>
             </section>
 
-            <section id="play-techtock" class="play-grid-section">
+            <section id="play-techtock" class="play-grid-section desktop-only">
                 <div class="grid-container">
                     <!-- Row 1 -->
                     <div class="grid-item"><img src="images/cards/techtock1.png" alt=""></div>
@@ -258,7 +427,7 @@
                 </div>
             </section>
 
-            <section id="play-aiplay" class="play-grid-section">
+            <section id="play-aiplay" class="play-grid-section desktop-only">
                 <div class="grid-container">
                     <!-- Row 1 -->
                     <div class="grid-item"><img src="images/cards/aiplay1.png" alt=""></div>
@@ -466,11 +635,99 @@
         </div>
 
         <div id="page-recipe" class="page">
-            <section id="recipe-hero" class="recipe-hero">
+            <!-- Mobile Recipe View (Style Match) -->
+            <div class="mobile-recipe-view">
+                <div class="mobile-header-top">
+                    <div class="logo">SAMSUNG</div>
+                    <div class="actions">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </span>
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                        </span>
+                        <span class="icon user-profile">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="style-match-card">
+                    <div class="card-header-pill">
+                        <span class="icon">🔗</span> 스불재형
+                    </div>
+                    <div class="card-image">
+                        <!-- Placeholder for 3D character image -->
+                        <img src="images/cards/sbul.png" alt="Character">
+                    </div>
+                    <div class="card-info">
+                        <div class="user-name">카레카레님의 루틴 유형은</div>
+                        <h2 class="type-title">스불재형</h2>
+                        <p class="desc">
+                            단발적이고 잦게 루틴을 설정하는 당신! 미룰 수 있을 때까지 미뤘다가 스스로를 닥달하는 게으른 실행파에요.
+                            반복 작업을 자동으로 실행하는 루틴을 통해 심리적 여유를 확보하고 자신의 작업에 몰입할 수 있는 환경을 만들어보는 게 어떨까요?
+                        </p>
+                    </div>
+                </div>
+
+                <div class="recommend-section">
+                    <h3>추천 루틴</h3>
+                    <p class="sub-desc">나와 유사한 스불재형 사용자들의 루틴이에요</p>
+                    <div class="routine-scroll">
+                        <div class="routine-card">
+                            <div class="card-top">
+                                <span class="icon">💡</span>
+                                <span class="add-icon">⊕</span>
+                            </div>
+                            <h4>알람음악으로 미라클 만들기</h4>
+                            <p>바쁜 아침 일어나기 싫을 때 제대로 눈 뜨게 만...</p>
+                        </div>
+                        <div class="routine-card">
+                            <div class="card-top">
+                                <span class="icon">🔌</span>
+                                <span class="add-icon">⊕</span>
+                            </div>
+                            <h4>충전 완료 알림</h4>
+                            <p>두고가는 일 없이 충전 시작한 버즈에게서 알람...</p>
+                        </div>
+                        <div class="routine-card">
+                            <div class="card-top">
+                                <span class="icon">🔓</span>
+                                <span class="add-icon">⊕</span>
+                            </div>
+                            <h4>잠금 해제 시 자동 실행</h4>
+                            <p>아침에 일어나서 폰을 켜면 자동으로 뉴스...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommend-section">
+                    <h3>추천 제품</h3>
+                    <p class="sub-desc">스불재형 사용자님의 라이프스타일에 어울리는 제품을 모아봤어요</p>
+                    <div class="product-scroll">
+                        <div class="product-item"><img src="images/ico/image 7147.png" alt=""></div>
+                        <div class="product-item"><img src="images/ico/image 7148.png" alt=""></div>
+                        <div class="product-item"><img src="images/ico/image 7149.png" alt=""></div>
+                        <div class="product-item"><img src="images/ico/image 7150.png" alt=""></div>
+                        <div class="product-item"><img src="images/ico/image 7151.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="recipe-hero" class="recipe-hero desktop-only">
                 <img src="images/hero/herorecipe.png" alt="Recipe Hero">
             </section>
 
-            <section id="recipe-intro" class="recipe-header">
+            <section id="recipe-intro" class="recipe-header desktop-only">
                 <h2>Unlock Your True Aesthetic</h2>
                 <p>
                     갤럭시가 가진 무한한 잠재력은,<br>
@@ -481,7 +738,7 @@
                 </p>
             </section>
 
-            <section id="recipe-list" class="section recipe-grid-section">
+            <section id="recipe-list" class="section recipe-grid-section desktop-only">
                 <div class="section-header">
                     <h2>Pro's Recipe</h2>
                 </div>
@@ -529,7 +786,7 @@
                 </div>
             </section>
 
-            <section id="recipe-goodlock" class="recipe-goodlock">
+            <section id="recipe-goodlock" class="recipe-goodlock desktop-only">
                 <div class="section-header">
                     <h2>Good Lock</h2>
                 </div>
@@ -542,7 +799,7 @@
                 </div>
             </section>
 
-            <section id="recipe-scroll" class="recipe-scroll">
+            <section id="recipe-scroll" class="recipe-scroll desktop-only">
                 <div class="scroll-container">
                     <!-- Row 1: Left Scroll -->
                     <div class="scroll-row left-scroll">
@@ -741,6 +998,17 @@
                 </div>
             </section>
         </div>
+
+        <div id="page-mypage" class="page">
+            <section class="section">
+                <div class="section-header">
+                    <h2>My Page</h2>
+                </div>
+                <div style="padding: 100px; text-align: center;">
+                    <p>마이페이지 준비 중입니다.</p>
+                </div>
+            </section>
+        </div>
     </main>    <footer>
         <div class="footer-content">
             <div class="footer-links">
@@ -796,6 +1064,30 @@
             </div>
         </div>
     </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="#" class="nav-item active" data-page="home">
+            <img src="images/ico/home.png" alt="Home" class="nav-icon">
+            <span>홈</span>
+        </a>
+        <a href="#" class="nav-item" data-page="play">
+            <img src="images/ico/play.png" alt="Play" class="nav-icon">
+            <span>PLAY</span>
+        </a>
+        <a href="#" class="nav-item disabled">
+            <img src="images/ico/archive.png" alt="Archive" class="nav-icon">
+            <span>ARCHIVE</span>
+        </a>
+        <a href="#" class="nav-item" data-page="recipe">
+            <img src="images/ico/recipe.png" alt="Recipe" class="nav-icon">
+            <span>RECIPE</span>
+        </a>
+        <a href="#" class="nav-item disabled">
+            <img src="images/ico/my.png" alt="My Page" class="nav-icon">
+            <span>마이페이지</span>
+        </a>
+    </nav>
 
     <script src="script.js"></script>
 </body>
