@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchBtn = document.getElementById('mobile-search-btn');
     
     // Base64 Encoded API Key
-    const ENCODED_KEY = 'c2stcHJvai1tWTEtTGFHZ25OQWxTdV9XcGVsNTRUbUpoQkY5TXFjTzFUY0NCaVNXeWR0WklYdENIMGVaaGJmcko3eWhQbXNRRzV6YzBEZVRkYVQzQmxia0ZKTUExSUZCdVZQZzdFYlNhc0FmLThFWW1fRWFheGltZ2R2ZzZDdVd5V3hUNGx1VEY1M0xseE9uNHVPTnJSYkdqcEpfSDVmZElmSUE=';
+    const ENCODED_KEY = '';
     
     // Decode API Key
     const OPENAI_API_KEY = atob(ENCODED_KEY);
